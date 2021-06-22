@@ -1,10 +1,32 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 export const CartContext = createContext();
 
+const getLocalCartItems = () => {
+  try {
+    const list = localStorage.getItem("Cart");
+    if (list === null) {
+      return [];
+    } else {
+      return JSON.parse(list);
+    }
+  } catch (err) {
+    return [];
+  }
+};
+
 export default function CartProvider(props) {
-  const [cartItems, setCartitems] = useState([]);
-  //const [cartTotal, setCartTotal] = useState(0);
+  const [cartItems, setCartitems] = useState(getLocalCartItems());
+  const [cartTotal, setCartTotal] = useState(0);
+
+  useEffect(() => {
+    const Total = cartItems.reduce(
+      (sum, item) => sum + item.price * item.cartQuantity,
+      0
+    );
+    setCartTotal(Total);
+    localStorage.setItem("Cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (item, quantity = 1) => {
     const index = cartItems.findIndex((itm) => itm.id === item.id);

@@ -13,13 +13,13 @@ export default function CartTable(props) {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="customized table">
-        <TableHead>
+        <TableHead style={{ background: "black" }}>
           <TableRow>
-            <TableCell>Image</TableCell>
-            <TableCell>Title</TableCell>
-            <TableCell>Price&nbsp;(Rs)</TableCell>
-            <TableCell>Quantity</TableCell>
-            <TableCell>Delete</TableCell>
+            <TableCell style={{ color: "white" }}>Image</TableCell>
+            <TableCell style={{ color: "white" }}>Title</TableCell>
+            <TableCell style={{ color: "white" }}>Price&nbsp;(Rs)</TableCell>
+            <TableCell style={{ color: "white" }}>Quantity</TableCell>
+            <TableCell style={{ color: "white" }}>Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

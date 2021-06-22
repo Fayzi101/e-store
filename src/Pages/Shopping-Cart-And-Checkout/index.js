@@ -8,8 +8,9 @@ import { CartContext } from "./cartfun";
 const useStyles = makeStyles({
   heading: {
     display: "flex",
+    marginTop: "5px",
+    marginBottom: "5px",
     justifyContent: "center",
-    border: "2px solid black",
   },
 });
 

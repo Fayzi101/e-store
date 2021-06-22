@@ -20,12 +20,12 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
-  logo: {},
-  buttons: {},
-  icons: {},
 
   button: {
     color: "white",
+  },
+  link: {
+    textDecoration: "none",
   },
 });
 
@@ -38,18 +38,18 @@ export default function Header() {
           <Typography variant="h6">Jewellery Store |</Typography>
         </Box>
 
-        <Box classsName={classes.buttons}>
-          <Link to="/">
+        <Box>
+          <Link className={classes.link} to="/">
             <Button className={classes.button} size="small">
               Home
             </Button>
           </Link>
-          <Link to="/collection">
+          <Link className={classes.link} to="/collection">
             <Button className={classes.button} size="small">
               Collection
             </Button>
           </Link>
-          <Link to="/Aboutus">
+          <Link className={classes.link} to="/Aboutus">
             <Button className={classes.button} size="small">
               About Us
             </Button>
