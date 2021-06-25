@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useContext } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/ToolBar";
 import Box from "@material-ui/core/Box";
@@ -9,6 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/Styles";
 import { Link } from "react-router-dom";
+
+import { CartContext } from "../Shopping-Cart-And-Checkout/cartfun";
 
 const useStyles = makeStyles({
   root: {
@@ -30,6 +32,7 @@ const useStyles = makeStyles({
 });
 
 export default function Header() {
+  const { totalCartItems } = useContext(CartContext);
   const classes = useStyles();
   return (
     <AppBar className={classes.root}>
@@ -59,7 +62,7 @@ export default function Header() {
         <Box className={classes.icons}>
           <Link to="/shopping-cart">
             <IconButton>
-              <Badge>
+              <Badge badgeContent={totalCartItems} showZero={true} color="secondary">
                 <ShopOutlinedIcon htmlColor="white" />
               </Badge>
             </IconButton>

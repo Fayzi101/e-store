@@ -48,7 +48,10 @@ export default function CartProvider(props) {
     setCartitems(copyCart);
   };
 
-  const totalCartItems = cartItems.reduce((sum, e) => sum + e.CartQuantity, 0);
+  const totalCartItems = cartItems.reduce(
+    (sum, item) => sum + item.cartQuantity,
+    0
+  );
 
   const removeFromCart = (item) => {
     setCartitems(cartItems.filter((e) => e.id !== item.id));
@@ -65,6 +68,7 @@ export default function CartProvider(props) {
       value={{
         ...props,
         addToCart,
+        cartTotal,
         cartItems,
         updateQuantity,
         totalCartItems,

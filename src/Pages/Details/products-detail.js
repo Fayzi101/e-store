@@ -68,7 +68,7 @@ export default function ProductDetails() {
 
   const classes = useStyles();
 
-  const { addToCart, unitsInCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   if (!product) {
     history.push("/not-found");
